@@ -1,0 +1,33 @@
+## template: jinja
+#cloud-config
+
+users:
+  - default
+  - name: ubuntu
+    gecos: Default User
+    ssh_authorized_keys:
+      - '{{ ds.meta_data.public_keys }}'
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    lock_passwd: true
+    ssh_pwauth: false
+
+no_ssh_fingerprints: true
+ssh_deletekeys: false
+
+ssh:
+  emit_keys_to_console: false
+
+create_hostname_file: true
+manage_etc_hosts: true
+
+growpart:
+  mode: auto
+  devices:
+    - "/dev/sda3"
+  ignore_growroot_disabled: true
+
+runcmd: 
+  - [ cloud-init-per, always, grow_VG, pvresize, /dev/sda3 ]
+  - [ cloud-init-per, always, grow_LV, lvresize, -l, '+100%FREE', /dev/ubuntu-vg/ubuntu-lv ]
+  - [ cloud-init-per, always, grow_FS, resize2fs, /dev/ubuntu-vg/ubuntu-lv ]
