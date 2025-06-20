@@ -1,5 +1,5 @@
-resource "cloudstack_firewall" "default" {
-  ip_address_id = cloudstack_ipaddress.public_ip.id
+resource "cloudstack_egress_firewall" "egress_fw" {
+  network_id = cloudstack_network.tcc-network.id
 
   rule {
     cidr_list = ["192.168.1.0/24"]
