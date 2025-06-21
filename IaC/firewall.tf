@@ -1,4 +1,4 @@
-resource "cloudstack_firewall" "fw" {
+resource "cloudstack_firewall" "firewall_fw" {
   ip_address_id = cloudstack_ipaddress.public_ip.id
 
   rule {
