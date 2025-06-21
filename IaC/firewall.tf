@@ -4,6 +4,6 @@ resource "cloudstack_firewall" "fw" {
   rule {
     cidr_list = ["0.0.0.0/0"]
     protocol = "tcp"
-    ports = [2222, 2225]
+    ports = ["2222-2224"]
   }
 }
