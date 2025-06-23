@@ -35,12 +35,8 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
-<<<<<<< HEAD
-*.key
-=======
     
 # Ignore another things
-*plan
+plan
 *.terraform.*
 *.key
->>>>>>> refs/remotes/origin/main
