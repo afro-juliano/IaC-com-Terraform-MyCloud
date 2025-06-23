@@ -7,9 +7,8 @@ Este projeto visa implementar o uso de terraform no MyCloud, e através dessa fe
 Necessário ter o terraform instalado na máquina local que irá se conectar com a cloud provider,
 Segue o link com o passo a passo para a instalação:
 
-```
 https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
-```
+
 É importante mapear as variáveis de ambiente utilizadas nos scripts, você pode mapeá-las
 no arquivo .bashrc ou .zshrc do seu linux, windows pra que né?
 
